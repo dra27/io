@@ -1,0 +1,7 @@
+(library
+ (name io_kernel)
+ (public_name io.kernel)
+ (libraries await.kernel core file_path filesystem.types io_descr io_types
+   ox.kernel portable netlib.sockaddr)
+ (preprocess
+  (pps ppx_jane)))

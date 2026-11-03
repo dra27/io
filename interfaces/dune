@@ -1,0 +1,7 @@
+(library
+ (name io_interfaces)
+ (public_name io.interfaces)
+ (libraries await.kernel capsule core file_path filesystem.types io_kernel
+   io_types ox.kernel netlib.sockaddr)
+ (preprocess
+  (pps ppx_jane)))

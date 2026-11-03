@@ -1,0 +1,6 @@
+(library
+ (name io_descr_native)
+ (public_name io.descr_native)
+ (libraries core_unix io_descr)
+ (preprocess
+  (pps ppx_jane -compare-require-explicit-locality)))

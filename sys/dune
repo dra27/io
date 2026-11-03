@@ -1,0 +1,7 @@
+(library
+ (name io_sys)
+ (public_name io.sys)
+ (libraries await.kernel capsule core core_unix file_path io_descr_native
+   io_interfaces io_kernel ox.kernel)
+ (preprocess
+  (pps ppx_jane)))

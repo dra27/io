@@ -1,0 +1,43 @@
+opam-version: "2.0"
+maintainer: "Jane Street developers"
+authors: ["Jane Street Group, LLC"]
+homepage: "https://github.com/janestreet/io"
+bug-reports: "https://github.com/janestreet/io/issues"
+dev-repo: "git+https://github.com/janestreet/io.git"
+doc: "https://ocaml.janestreet.com/ocaml-core/latest/doc/io/index.html"
+license: "MIT"
+x-maintenance-intent: ["(latest)"]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+]
+depends: [
+  "ocaml" {>= "5.2.0"}
+  "await"
+  "base"
+  "basement"
+  "capsule"
+  "core"
+  "core_kernel"
+  "core_unix"
+  "file_path"
+  "filesystem"
+  "netlib"
+  "ox"
+  "portable"
+  "portable_lockfree_htbl"
+  "posixat"
+  "ppx_assert"
+  "ppx_jane"
+  "ppx_with"
+  "base-threads"
+  "dune"                   {>= "3.17.0"}
+]
+conflicts: [
+  "oxcaml-compiler" {< "5.2.0minus39"}
+]
+synopsis: "Direct-style I/O in OxCaml"
+description: "
+`Io` is an interface library for direct-style I/O using the [Await] interface for
+blocking.
+"
+available: (arch = "x86_64" | arch = "arm64") & os = "linux"

@@ -1,0 +1,23 @@
+(library
+ (name io_uring_bindings)
+ (public_name io.uring_bindings)
+ (libraries base basement capsule core core_unix file_path filesystem.types
+   core_kernel.flags core_unix.linux_ext ox netlib.sockaddr)
+ (foreign_archives ../../vendor/liburing/src/liburing)
+ (preprocess
+  (pps ppx_jane -compare-require-explicit-locality))
+ (foreign_stubs
+  (flags
+   (-D_ATFILE_SOURCE -std=gnu11 -Wall -Wextra -Wno-sign-compare
+     -Wno-unused-parameter -Wno-return-type -fPIC -O2))
+  (include_dirs ../../vendor/liburing/src/include)
+  (extra_deps
+   (source_tree ../../vendor/liburing/src/include))
+  (names io_uring_stubs)
+  (language c)))
+
+(rule
+ (targets c_intf.ml)
+ (deps constants/bin/io_uring_bindings_constants_print.exe)
+ (action
+  (bash "%{deps} > %{targets}")))

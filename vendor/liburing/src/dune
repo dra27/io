@@ -1,0 +1,25 @@
+(rule
+ (targets libliburing.a dllliburing.so setup.o queue.o syscall.o register.o
+   version.o)
+ (deps
+  setup.c
+  queue.c
+  syscall.c
+  register.c
+  version.c
+  (glob_files *.h)
+  (source_tree arch)
+  (source_tree include))
+ (action
+  (progn
+   (run %{cc} -D_ATFILE_SOURCE -D_GNU_SOURCE -std=gnu11 -Wall -Wextra
+     -Wno-unused-parameter -Wno-sign-compare -fPIC -O2 -I include -I . -c
+     setup.c queue.c syscall.c register.c version.c)
+   (run ar Drcs libliburing.a setup.o queue.o syscall.o register.o version.o)
+   (run %{cc} -shared -o dllliburing.so setup.o queue.o syscall.o register.o
+     version.o))))
+
+(install
+ (section doc)
+ (files
+  (../LICENSE as LICENSE.liburing)))

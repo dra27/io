@@ -1,0 +1,14 @@
+(library
+ (name io_uring_bindings_constants)
+ (public_name io.uring_bindings_constants)
+ (preprocess
+  (pps ppx_jane -compare-require-explicit-locality))
+ (foreign_stubs
+  (flags
+   (-D_ATFILE_SOURCE -std=gnu11 -Wall -Wextra -Wno-sign-compare
+     -Wno-unused-parameter -Wno-return-type -fPIC -O2))
+  (include_dirs ../../../../vendor/liburing/src/include)
+  (extra_deps
+   (source_tree ../../../../vendor/liburing/src/include))
+  (names io_uring_bindings_constants_stubs)
+  (language c)))

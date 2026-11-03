@@ -1,0 +1,6 @@
+(library
+ (name io)
+ (public_name io)
+ (libraries io_interfaces io_kernel io_sys io_types)
+ (preprocess
+  (pps ppx_jane)))

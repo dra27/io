@@ -1,0 +1,8 @@
+(library
+ (name io_uring_shards)
+ (public_name io.uring_shards)
+ (libraries await core_kernel.caml_unix core core_unix file_path
+   io_uring_bindings core_unix.linux_ext ox portable_lockfree_htbl
+   netlib.sockaddr await.sync_blocking threads)
+ (preprocess
+  (pps ppx_jane ppx_with -compare-require-explicit-locality)))

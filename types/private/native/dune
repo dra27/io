@@ -1,0 +1,6 @@
+(library
+ (name io_types_private_native)
+ (public_name io.types_private_native)
+ (libraries core io_types ox)
+ (preprocess
+  (pps ppx_jane ppx_with ppx_assert)))

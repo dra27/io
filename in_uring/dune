@@ -1,0 +1,9 @@
+(library
+ (name io_in_uring)
+ (public_name io.in_uring)
+ (libraries await core_kernel.caml_unix core core_unix file_path
+   filesystem.types_unix io_descr_native io_kernel io_types_private_native
+   io_uring_bindings io_uring_shards core_unix.linux_ext ox posixat
+   netlib.sockaddr netlib.sockaddr.unix threads)
+ (preprocess
+  (pps ppx_jane ppx_with)))

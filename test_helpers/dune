@@ -1,0 +1,6 @@
+(library
+ (name io_test_helpers)
+ (public_name io.test_helpers)
+ (libraries await.kernel base io_kernel)
+ (preprocess
+  (pps ppx_jane)))

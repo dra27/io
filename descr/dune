@@ -1,0 +1,6 @@
+(library
+ (name io_descr)
+ (public_name io.descr)
+ (libraries base core_kernel.flags portable)
+ (preprocess
+  (pps ppx_jane -compare-require-explicit-locality)))
