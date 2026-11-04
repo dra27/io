@@ -40,4 +40,4 @@ description: "
 `Io` is an interface library for direct-style I/O using the [Await] interface for
 blocking.
 "
-available: (arch = "x86_64" | arch = "arm64") & os = "linux"
+available: (arch = "x86_64" | arch = "arm64") & (os = "linux" | os = "macos")

@@ -1,4 +1,5 @@
 (executables
+ (enabled_if (= %{system} linux))
  (modes byte exe)
  (names io_uring_bindings_constants_print)
  (libraries io_uring_bindings_constants)

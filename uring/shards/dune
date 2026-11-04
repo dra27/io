@@ -1,4 +1,5 @@
 (library
+ (enabled_if (= %{system} linux))
  (name io_uring_shards)
  (public_name io.uring_shards)
  (libraries await core_kernel.caml_unix core core_unix file_path

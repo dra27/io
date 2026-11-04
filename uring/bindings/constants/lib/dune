@@ -1,4 +1,5 @@
 (library
+ (enabled_if (= %{system} linux))
  (name io_uring_bindings_constants)
  (public_name io.uring_bindings_constants)
  (preprocess

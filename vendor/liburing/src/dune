@@ -1,4 +1,5 @@
 (rule
+ (enabled_if (= %{system} linux))
  (targets libliburing.a dllliburing.so setup.o queue.o syscall.o register.o
    version.o)
  (deps
@@ -20,6 +21,7 @@
      version.o))))
 
 (install
+ (enabled_if (= %{system} linux))
  (section doc)
  (files
   (../LICENSE as LICENSE.liburing)))
