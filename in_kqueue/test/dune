@@ -1,0 +1,29 @@
+(executable
+ (enabled_if (= %{system} macosx))
+ (name test_io_in_kqueue)
+ (modules test_io_in_kqueue)
+ (libraries await core core_kernel.caml_threads core_unix core_unix.filename_unix core_unix.time_float_unix
+   file_path filesystem.types io_descr_native io_in_kqueue io_kernel io_types
+   netlib.sockaddr netlib.sockaddr.unix ox threads)
+ (preprocess
+  (pps ppx_jane)))
+
+(rule
+ (enabled_if (= %{system} macosx))
+ (alias runtest)
+ (action
+  (run %{exe:test_io_in_kqueue.exe})))
+
+(executable
+ (enabled_if (= %{system} macosx))
+ (name test_exit_without_close)
+ (modules test_exit_without_close)
+ (libraries await core core_unix io_descr_native io_in_kqueue io_kernel io_types)
+ (preprocess
+  (pps ppx_jane)))
+
+(rule
+ (enabled_if (= %{system} macosx))
+ (alias runtest)
+ (action
+  (run %{exe:test_exit_without_close.exe})))

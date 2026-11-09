@@ -1,0 +1,14 @@
+(library
+ (enabled_if (= %{system} macosx))
+ (name io_in_kqueue)
+ (public_name io.in_kqueue)
+ (libraries await core_kernel.caml_unix core core_unix file_path
+   filesystem.types_unix io_descr_native io_kernel io_types_private_native ox
+   portable_lockfree_htbl posixat netlib.sockaddr netlib.sockaddr.unix threads)
+ (foreign_stubs
+  (language c)
+  (names io_in_kqueue_stubs)
+  (flags
+   (:standard -std=gnu11 -Wall -Wextra -Wno-unused-parameter -O2)))
+ (preprocess
+  (pps ppx_jane ppx_with)))
